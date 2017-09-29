@@ -1,4 +1,5 @@
 package rpg;
+
 public class Soldado extends Unidad {
 
 	private int energia;
@@ -17,15 +18,25 @@ public class Soldado extends Unidad {
 		energia = ENERGIA_INICIAL;
 	}
 
-
 	public void restaurarEnergia() {
 		energia = ENERGIA_INICIAL;
+	}
 
+	public void restaurarDaño() {
+		this.daño = DAÑO_INICIAL;
 	}
 
 	public void multiplicarEnergia(int valor) {
 		energia *= valor;
+		if(energia>100)
+			energia=100;
 	}
+
+	public void restarMitadDeEnergia(int valor) {
+		energia /= valor;
+	}
+
+
 
 	@Override
 	public void ataca(Unidad u) {
@@ -39,6 +50,5 @@ public class Soldado extends Unidad {
 	public int getEnergia() {
 		return energia;
 	}
-
 
 }

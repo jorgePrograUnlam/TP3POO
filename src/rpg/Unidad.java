@@ -38,6 +38,10 @@ public abstract class Unidad {
 	public void disminuirDefensa(double n) {
 		defensa -= n;
 	}
+	
+	public void reduceFuerzaDeDaño(double valor) {
+		daño =daño- (daño * valor);
+	}
 
 	public void aumentarAtaque(double n) {
 		ataque += n;

@@ -4,6 +4,7 @@ import org.junit.Test;
 
 import org.junit.Assert;
 
+import rpg.Capa;
 import rpg.Escudo;
 import rpg.PocionDeAgua;
 import rpg.Soldado;
@@ -40,7 +41,9 @@ public class SoldadoTests {
 		}
 		Assert.assertEquals(0, uno.getEnergia(),0);
 		Assert.assertEquals(100,otro.getSalud(),0);
-		uno.ataca(otro);
+		uno.ataca(otro);		
+		Assert.assertEquals(0,uno.getEnergia(),0);
+
 	}
 
 	@Test
@@ -61,6 +64,42 @@ public class SoldadoTests {
 		Assert.assertEquals(0,uno.getEnergia(),0);
 		uno.agarrarItem(new PocionDeAgua());
 		Assert.assertEquals(100,uno.getEnergia(),0);
-		
 	}
+	
+	@Test
+	public void queDuplicaEnergiaConCapa(){
+		Soldado uno=new Soldado(0);
+		Soldado otro=new Soldado(0);
+		Assert.assertEquals(100,uno.getEnergia(),0);
+		for(int i=0;i<5;i++)
+			uno.ataca(otro);
+		Assert.assertEquals(50, uno.getEnergia(),0);
+		uno.agarrarItem(new Capa());
+		Assert.assertEquals(100,uno.getEnergia(),0 );
+		Assert.assertEquals(9,uno.getAtaque(),0);		
+
+	}
+	
+	@Test
+	public void queReduceAtaqueConCapa(){
+		Soldado uno=new Soldado(0);
+		Soldado otro=new Soldado(0);
+		uno.agarrarItem(new Capa());
+		uno.ataca(otro);
+		Assert.assertEquals(9, uno.getAtaque(),0);
+		Assert.assertEquals(191,otro.getSalud(),0);
+	}
+	
+	@Test
+	public void quRetiraEfectosAlTirarCapa(){
+		Soldado uno=new Soldado();
+		Capa capa=new Capa();
+		uno.agarrarItem(capa);
+		Assert.assertEquals(9, uno.getAtaque(),0);
+		Assert.assertEquals(100, uno.getEnergia(),0);
+		uno.tirarItem(capa);
+		Assert.assertEquals(10, uno.getAtaque(),0);
+		Assert.assertEquals(50, uno.getEnergia(),0);//deberia dar 100??
+	}
+	
 }
