@@ -1,7 +1,7 @@
 package rpg;
 
 /**
- * La Clase Arquero.
+ * La Clase Arquero. Hereda de la clase abstracta Unidad
  */
 public class Arquero extends Unidad {
 		

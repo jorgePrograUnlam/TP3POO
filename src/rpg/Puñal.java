@@ -1,7 +1,9 @@
 package rpg;
 
 /**
- * La Clase Puñal.
+ * La Clase Puñal. Hereda de la clase abstracta Item
+ * Otorga mayor ataque a la unidad que lo posea.
+ * Disminuye su defensa por cargar este Item.
  */
 public class Puñal extends Item {
 

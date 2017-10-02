@@ -1,7 +1,8 @@
 package rpg;
 
 /**
- * La Clase Escudo.
+ * La Clase Escudo. Hereda de la clase abstracta Item
+ * Otorga mayor defensa a la unidad que lo posea
  */
 public class Escudo extends Item {
 

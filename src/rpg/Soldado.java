@@ -1,7 +1,7 @@
 package rpg;
 
 /**
- * La Clase Soldado.
+ * La Clase Soldado. Hereda de la clase abstracta Unidad.
  */
 public class Soldado extends Unidad {
 
@@ -27,7 +27,7 @@ public class Soldado extends Unidad {
 	}
 
 	/**
-	 * constructor de saoldado con parametros
+	 * constructor de soldado con parametros
 	 * crea un soldado con una posicion.
 	 *
 	 * @param posicion posicion donde se encuentra el soldado
@@ -54,7 +54,7 @@ public class Soldado extends Unidad {
 	/**
 	 * Multiplica energia
 	 *
-	 * @param valor multiplicador
+	 * @param valor Es el valor a multiplicar
 	 */
 	public void multiplicarEnergia(int valor) {
 		energia *= valor;
@@ -65,7 +65,7 @@ public class Soldado extends Unidad {
 	/**
 	 * Restar mitad de energia.
 	 *
-	 * @param valor the valor
+	 * @param valor Es el valor que se le restara a la energia
 	 */
 	public void dividirEnergia(int valor) {
 		energia /= valor;

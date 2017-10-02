@@ -2,7 +2,7 @@ package rpg;
 import java.util.LinkedList;
 
 /**
- * La clase Unidad.
+ * La clase Abstracta Unidad. Tiene como subclases: Soldado, Guerrero, Caballero y Lancero
  */
 public abstract class Unidad {
 
@@ -51,7 +51,7 @@ public abstract class Unidad {
 	}
 
 	/**
-	 * Ataca a otra unidad.
+	 * Ataca a otra unidad. Su implementacion depende del tipo de unidad
 	 *
 	 * @param u la unidad que recibe el ataque
 	 */
@@ -87,7 +87,7 @@ public abstract class Unidad {
 	/**
 	 * Disminuye el ataque porcentual del daño
 	 *
-	 * @param n cantidad a aumentar
+	 * @param n cantidad a disminuir
 	 */
 	public void disminuirAtaquePorcentual(double n) {
 			ataque /= n;

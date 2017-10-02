@@ -1,7 +1,9 @@
 package rpg;
 
 /**
- * La Clase PaqueteFlecha.
+ * La Clase PaqueteFlecha. Hereda de la clase abstracta Item
+ * Aplica solamente a la unidad del tipo Arquero
+ * recarga la cantidad de flechas por defecto
  */
 public class PaqueteFlecha extends Item {
 	
