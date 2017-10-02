@@ -1,7 +1,7 @@
 package rpg;
 
 /**
- * La Clase Lancero.
+ * La Clase Lancero. Hereda de la clase abstracta Unidad
  */
 public class Lancero extends Unidad {
 
