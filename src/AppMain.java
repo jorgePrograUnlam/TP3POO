@@ -25,12 +25,12 @@ public class AppMain {
 		// Probando 2 Item Escudo
 		Escudo escudo2 = new Escudo();
 
-		s2.agarrarItem(escudo2);
+		s2.agarrarItem(escudo2);//defensa de s2 0.8
 
-		s1.ataca(s2);
+		s1.ataca(s2);//recibo solo 2 ptos
 		System.out.println(s2.getSalud());
 		
-		System.out.println(s1.getEnergia());
+		System.out.println(s1.getEnergia());//ataco 3 veces
 
 		// Probando pocion de agua
 		PocionDeAgua p = new PocionDeAgua();
@@ -42,12 +42,11 @@ public class AppMain {
 		s2.tirarItem(escudo);
 
 		s1.ataca(s2);
-		System.out.println(s2.getSalud());
+		System.out.println(s2.getSalud());//tiro un escudo. disminuye defensa
 
 		s2.tirarItem(escudo2);
 		s1.ataca(s2);
 		System.out.println(s2.getSalud());
-
 	}
 
 }
