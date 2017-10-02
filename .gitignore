@@ -1,6 +1,7 @@
 .metadata
 **/.settings
 **/bin
+**/doc
 *.project
 bin/**
 

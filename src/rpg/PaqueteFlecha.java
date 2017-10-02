@@ -1,28 +1,56 @@
 package rpg;
+
+/**
+ * La Clase PaqueteFlecha.
+ */
 public class PaqueteFlecha extends Item {
+	
+	private static final int FLECHAS_POR_DEFECTO = 6;
 
 	private int cantidad;
 
+	/**
+	 * crea un paquete con una cantidad de flechas por defecto
+	 */
+	public PaqueteFlecha() {
+		this.cantidad = FLECHAS_POR_DEFECTO;
+	}
+	
+	/**
+	 * crea un paquete de flechas con una cantidad prestablecida
+	 *
+	 * @param cantidad la cantidad de flechas dentro del paquete
+	 */
 	public PaqueteFlecha(int cantidad) {
 		this.cantidad = cantidad;
 	}
 
-	public int obtenerCantidadDeFlechas() {
-		return 0;
-	}
 
+	/* (non-Javadoc)
+	 * @see rpg.Item#aplicarEfecto(rpg.Unidad)
+	 */
 	@Override
 	public void aplicarEfecto(Unidad u) {
-		// TODO Auto-generated method stub
+		if (u instanceof Arquero) {
+			((Arquero) u).recargarFlechas(this);
+		}
 
 	}
 
+	/* (non-Javadoc)
+	 * @see rpg.Item#quitarEfecto(rpg.Unidad)
+	 */
 	@Override
 	public void quitarEfecto(Unidad u) {
-		// TODO Auto-generated method stub
+		
 
 	}
 
+	/**
+	 * obtener la cantidad flechas.
+	 *
+	 * @return la cantidad de flechas del paquete.
+	 */
 	public int getCantidadFlechas() {
 		return cantidad;
 	}

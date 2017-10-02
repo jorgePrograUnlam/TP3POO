@@ -1,8 +1,7 @@
-package testSoladado;
-
-import org.junit.Test;
+package test;
 
 import org.junit.Assert;
+import org.junit.Test;
 
 import rpg.Capa;
 import rpg.Escudo;
