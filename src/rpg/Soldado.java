@@ -78,10 +78,9 @@ public class Soldado extends Unidad {
 	 */
 	@Override
 	public void ataca(Unidad u) {
-		if (energia > 0 && energia <= 100) {
+		if (energia >= 10 ) {
 			energia -= 10;
-			//if (u instanceof Soldado)
-				u.recibirDaño(getAtaque());
+			u.recibirDaño(getAtaque());
 		}
 	}
 

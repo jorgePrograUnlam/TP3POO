@@ -11,7 +11,7 @@ import rpg.Soldado;
 public class SoldadoTests {
 	@Test
 	public void queInicializaSoldado(){
-		Soldado uno=new Soldado(0);
+		Soldado uno=new Soldado();
 		Assert.assertEquals(100,uno.getEnergia(),0);
 		Assert.assertEquals(200,uno.getSalud(),0);
 		Assert.assertEquals(10, uno.getAtaque(),10);
@@ -95,10 +95,10 @@ public class SoldadoTests {
 		Capa capa=new Capa();
 		uno.agarrarItem(capa);
 		Assert.assertEquals(9, uno.getAtaque(),0);
-		Assert.assertEquals(100, uno.getEnergia(),0);
+		Assert.assertEquals(200, uno.getEnergia(),0);
 		uno.tirarItem(capa);
 		Assert.assertEquals(10, uno.getAtaque(),0);
-		Assert.assertEquals(50, uno.getEnergia(),0);//deberia dar 100??
+		Assert.assertEquals(100, uno.getEnergia(),0);
 	}
 	
 }
