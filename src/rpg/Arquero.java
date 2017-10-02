@@ -61,7 +61,7 @@ public class Arquero extends Unidad {
 		
 		if (distancia >= DISTANCIA_MINIMA &&
 			distancia <= DISTANCIA_MAXIMA &&
-			flechas >= 0) {
+			flechas > 0) {
 			
 				flechas--;
 				u.recibirDaño(getAtaque());
