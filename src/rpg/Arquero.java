@@ -69,4 +69,13 @@ public class Arquero extends Unidad {
 
 	}
 
+	/**
+	 * Obtener la cantidad de flechas del arquero
+	 * 
+	 * @return la cantidad de fechas que tiene el arquero
+	 */
+	public int getFlechas() {
+		return flechas;
+	}
+
 }

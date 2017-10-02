@@ -198,5 +198,14 @@ public abstract class Unidad {
 		return salud;
 	}
 
+	/**
+	 * Obtener la posicion de la unidad
+	 * 
+	 * @return devuelve la posicion donde se encuentra
+	 */
+	public int getPosicion() {
+		return posicion;
+	}
+
 
 }
