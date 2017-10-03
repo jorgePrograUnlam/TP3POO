@@ -49,6 +49,12 @@ public abstract class Unidad {
 	public int getDistancia(Unidad o) {
 		return Math.abs(posicion - o.posicion);
 	}
+	
+	
+	public void atacar(Unidad u){
+		if(puedeAtacar(u))
+			ataca(u);
+	}
 
 	/**
 	 * Ataca a otra unidad. Su implementacion depende del tipo de unidad
@@ -56,6 +62,9 @@ public abstract class Unidad {
 	 * @param u la unidad que recibe el ataque
 	 */
 	public abstract void ataca(Unidad u);
+	
+	
+	public abstract boolean puedeAtacar(Unidad u);
 
 	/**
 	 * Aumentar la defensa porcentual contra ataques.

@@ -40,21 +40,18 @@ public class Caballero extends Unidad {
 		caballo.calmarse();
 	}
 
+	@Override
+	public boolean puedeAtacar(Unidad u) {
+		int distancia = getDistancia(u); 	
+		return distancia >= DISTANCIA_MINIMA &&distancia <= DISTANCIA_MAXIMA &&!caballo.estaRebelde();
+	}
 	/* (non-Javadoc)
 	 * @see rpg.Unidad#ataca(rpg.Unidad)
 	 */
 	@Override
 	public void ataca(Unidad u) {
-		int distancia = getDistancia(u); 
-		
-		if ( distancia >= DISTANCIA_MINIMA &&
-			 distancia <= DISTANCIA_MAXIMA &&
-			 !caballo.estaRebelde() 		  ) {
-	
 			u.recibirDaño(getAtaque());
 			caballo.recibirAtaque();
-		}
-
 	}
 
 

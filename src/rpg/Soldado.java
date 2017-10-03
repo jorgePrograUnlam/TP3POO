@@ -72,16 +72,19 @@ public class Soldado extends Unidad {
 	}
 
 
-
+	@Override
+	public boolean puedeAtacar(Unidad u) {
+		return energia >= 10;
+	}
+	
+	
 	/* (non-Javadoc)
 	 * @see rpg.Unidad#ataca(rpg.Unidad)
 	 */
 	@Override
 	public void ataca(Unidad u) {
-		if (energia >= 10 ) {
 			energia -= 10;
 			u.recibirDaño(getAtaque());
-		}
 	}
 
 	/**
@@ -92,5 +95,7 @@ public class Soldado extends Unidad {
 	public int getEnergia() {
 		return energia;
 	}
+
+
 
 }

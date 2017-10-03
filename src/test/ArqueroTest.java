@@ -28,9 +28,9 @@ public class ArqueroTest {
 		Arquero arq = new Arquero(0);
 		Soldado sold = new Soldado(1);
 
-		arq.ataca(sold);
-
-		Assert.assertTrue(200 == sold.getSalud());
+		arq.atacar(sold);
+		Assert.assertEquals(200,sold.getSalud(),0);
+//		Assert.assertTrue(200 == sold.getSalud());
 
 	}
 
@@ -39,7 +39,7 @@ public class ArqueroTest {
 		Arquero arq = new Arquero(0);
 		Soldado sold = new Soldado(3);
 
-		arq.ataca(sold);
+		arq.atacar(sold);
 
 		Assert.assertTrue(195 == sold.getSalud());
 
@@ -50,7 +50,7 @@ public class ArqueroTest {
 		Arquero arq = new Arquero(0);
 		Soldado sold = new Soldado(3);
 		for (int i = 0; i < 20; i++) {
-			arq.ataca(sold);
+			arq.atacar(sold);
 		}
 		Assert.assertEquals(100, sold.getSalud(), 0);
 		Assert.assertEquals(0, arq.getFlechas());
@@ -63,10 +63,10 @@ public class ArqueroTest {
 		Arquero arq = new Arquero(0);
 		Soldado sold = new Soldado(3);
 		for (int i = 0; i < 20; i++) {
-			arq.ataca(sold);
+			arq.atacar(sold);
 		}
 		Assert.assertEquals(0,arq.getFlechas());
-		arq.ataca(sold);
+		arq.atacar(sold);
 		Assert.assertEquals(100,sold.getSalud(),0);
 	}
 	
@@ -75,7 +75,7 @@ public class ArqueroTest {
 		Arquero arq = new Arquero(0);
 		Soldado sold = new Soldado(3);
 		arq.agarrarItem(new Escudo());
-		sold.ataca(arq);
+		sold.atacar(arq);
 		Assert.assertEquals(46, arq.getSalud(),0);
 	}
 	
@@ -84,7 +84,7 @@ public class ArqueroTest {
 		Arquero arq = new Arquero(0);
 		Soldado sold = new Soldado(3);
 		arq.agarrarItem(new Puñal());
-		arq.ataca(sold);
+		arq.atacar(sold);
 		Assert.assertEquals(8, arq.getAtaque(),0);
 		Assert.assertEquals(192,sold.getSalud(),0);
 	}
@@ -94,7 +94,7 @@ public class ArqueroTest {
 		Arquero arq = new Arquero(0);
 		Soldado sold = new Soldado(3);
 		arq.agarrarItem(new Puñal());
-		sold.ataca(arq);
+		sold.atacar(arq);
 		Assert.assertEquals(37, arq.getSalud(),0);	
 	}
 	
@@ -104,7 +104,7 @@ public class ArqueroTest {
 		Soldado sold = new Soldado(3);
 		arq.agarrarItem(new Escudo());
 		arq.agarrarItem(new Puñal());
-		sold.ataca(arq);
+		sold.atacar(arq);
 		Assert.assertEquals(43, arq.getSalud(),0.01);
 	}
 	

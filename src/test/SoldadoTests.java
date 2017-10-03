@@ -21,12 +21,12 @@ public class SoldadoTests {
 	public void queRestaSaludAlAtacado(){
 		Soldado uno=new Soldado(0);
 		Soldado otro=new Soldado(0);
-		uno.ataca(otro);
+		uno.atacar(otro);
 		Assert.assertEquals(190,otro.getSalud(),0);
-		uno.ataca(otro);
+		uno.atacar(otro);
 		Assert.assertEquals(180, otro.getSalud(),0);
 		for(int i=0;i<8;i++){
-			uno.ataca(otro);
+			uno.atacar(otro);
 		}
 		Assert.assertEquals(100,otro.getSalud(),0);
 	}
@@ -36,11 +36,11 @@ public class SoldadoTests {
 		Soldado uno=new Soldado(0);
 		Soldado otro=new Soldado(0);
 		for(int i =0;i<20;i++){
-			uno.ataca(otro);
+			uno.atacar(otro);
 		}
 		Assert.assertEquals(0, uno.getEnergia(),0);
 		Assert.assertEquals(100,otro.getSalud(),0);
-		uno.ataca(otro);		
+		uno.atacar(otro);		
 		Assert.assertEquals(0,uno.getEnergia(),0);
 
 	}
@@ -50,7 +50,7 @@ public class SoldadoTests {
 		Soldado uno=new Soldado(0);
 		Soldado otro=new Soldado(0);
 		otro.agarrarItem(new Escudo());
-		uno.ataca(otro);
+		uno.atacar(otro);
 		Assert.assertEquals(196, otro.getSalud(),0);//de 10 recibe el 40%.. recibe 4		
 	}
 	
@@ -59,7 +59,7 @@ public class SoldadoTests {
 		Soldado uno=new Soldado(0);
 		Soldado otro=new Soldado(0);
 		for(int i=0;i<10;i++)
-			uno.ataca(otro);
+			uno.atacar(otro);
 		Assert.assertEquals(0,uno.getEnergia(),0);
 		uno.agarrarItem(new PocionDeAgua());
 		Assert.assertEquals(100,uno.getEnergia(),0);
@@ -71,7 +71,7 @@ public class SoldadoTests {
 		Soldado otro=new Soldado(0);
 		Assert.assertEquals(100,uno.getEnergia(),0);
 		for(int i=0;i<5;i++)
-			uno.ataca(otro);
+			uno.atacar(otro);
 		Assert.assertEquals(50, uno.getEnergia(),0);
 		uno.agarrarItem(new Capa());
 		Assert.assertEquals(100,uno.getEnergia(),0 );
@@ -84,7 +84,7 @@ public class SoldadoTests {
 		Soldado uno=new Soldado(0);
 		Soldado otro=new Soldado(0);
 		uno.agarrarItem(new Capa());
-		uno.ataca(otro);
+		uno.atacar(otro);
 		Assert.assertEquals(9, uno.getAtaque(),0);
 		Assert.assertEquals(191,otro.getSalud(),0);
 	}

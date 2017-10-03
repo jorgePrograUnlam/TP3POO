@@ -22,7 +22,7 @@ public class LanceroTest {
 	public void queNoPuedeAtacarSiEstaFueraDeSuAlcance(){
 		Lancero lan=new Lancero();
 		Soldado sol=new Soldado(50);
-		lan.ataca(sol);
+		lan.atacar(sol);
 		Assert.assertEquals(200, sol.getSalud(),0);	
 	}
 	
@@ -30,7 +30,7 @@ public class LanceroTest {
 	public void queAtacaSiEstaASuAlcance(){
 		Lancero lan=new Lancero();
 		Soldado sol=new Soldado(2);
-		lan.ataca(sol);
+		lan.atacar(sol);
 		Assert.assertEquals(175,sol.getSalud(),0);
 		
 	}
@@ -40,7 +40,7 @@ public class LanceroTest {
 		Lancero lan=new Lancero();
 		Soldado sol=new Soldado(50);
 		lan.agarrarItem(new Escudo());
-		sol.ataca(lan);
+		sol.atacar(lan);
 		Assert.assertEquals(146,lan.getSalud(),0);		
 	}
 	
@@ -49,7 +49,7 @@ public class LanceroTest {
 		Lancero lan=new Lancero();
 		Soldado sol=new Soldado(2);
 		lan.agarrarItem(new Puñal());
-		lan.ataca(sol);
+		lan.atacar(sol);
 		Assert.assertEquals(172, sol.getSalud(),0);
 	}
 	
@@ -58,7 +58,7 @@ public class LanceroTest {
 		Lancero lan=new Lancero();
 		Soldado sol=new Soldado(5);
 		lan.agarrarItem(new Puñal());
-		sol.ataca(lan);
+		sol.atacar(lan);
 		Assert.assertEquals(137, lan.getSalud(),0);
 	}
 	
@@ -68,7 +68,7 @@ public class LanceroTest {
 		Soldado sol=new Soldado(2);
 		lan.agarrarItem(new Escudo());
 		lan.agarrarItem(new Puñal());
-		sol.ataca(lan);
+		sol.atacar(lan);
 		Assert.assertEquals(143,lan.getSalud(),0);
 	}
 	

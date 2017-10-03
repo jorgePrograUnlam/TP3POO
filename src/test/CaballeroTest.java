@@ -25,7 +25,7 @@ public class CaballeroTest {
 	public void queAtacaSiEstaASuAlcance() {
 		Caballero cab = new Caballero(3);
 		Soldado sol = new Soldado(4);
-		cab.ataca(sol);
+		cab.atacar(sol);
 		Assert.assertEquals(150, sol.getSalud(), 0);
 	}
 
@@ -33,7 +33,7 @@ public class CaballeroTest {
 	public void queNoAtacaSiNoEstaASuAlcance() {
 		Caballero cab = new Caballero(3);
 		Soldado sol = new Soldado(6);
-		cab.ataca(sol);
+		cab.atacar(sol);
 		Assert.assertEquals(200, sol.getSalud(), 0);
 	}
 
@@ -42,7 +42,7 @@ public class CaballeroTest {
 		Caballero cab = new Caballero(3);
 		Soldado sol = new Soldado(4);
 		cab.agarrarItem(new Escudo());
-		sol.ataca(cab);
+		sol.atacar(cab);
 		Assert.assertEquals(196, cab.getSalud(), 0);
 	}
 
@@ -51,7 +51,7 @@ public class CaballeroTest {
 		Caballero cab = new Caballero(3);
 		Soldado sol = new Soldado(4);
 		cab.agarrarItem(new Puñal());
-		cab.ataca(sol);
+		cab.atacar(sol);
 		Assert.assertEquals(147, sol.getSalud(), 0);
 	}
 
@@ -61,13 +61,13 @@ public class CaballeroTest {
 		Soldado sol = new Soldado(2);
 		Lancero lan = new Lancero(2);
 		Arquero arq = new Arquero(2);
-		cab.ataca(sol);
+		cab.atacar(sol);
 		Assert.assertEquals(150, sol.getSalud(), 0);
-		cab.ataca(lan);
+		cab.atacar(lan);
 		Assert.assertEquals(100, lan.getSalud(), 0);
-		cab.ataca(arq);
+		cab.atacar(arq);
 		Assert.assertEquals(0, arq.getSalud(), 0);
-		cab.ataca(sol);
+		cab.atacar(sol);
 		Assert.assertEquals(150, sol.getSalud(), 0);//se puso rebelde. No puede atacar
 	}
 
@@ -77,13 +77,13 @@ public class CaballeroTest {
 		Soldado sol = new Soldado(2);
 		Lancero lan = new Lancero(2);
 		Arquero arq = new Arquero(2);
-		cab.ataca(sol);
-		cab.ataca(lan);
-		cab.ataca(arq);
-		cab.ataca(sol);
+		cab.atacar(sol);
+		cab.atacar(lan);
+		cab.atacar(arq);
+		cab.atacar(sol);
 		Assert.assertEquals(150, sol.getSalud(), 0);//se puso rebelde. No puede atacar
 		cab.agarrarItem(new PocionDeAgua());
-		cab.ataca(sol);
+		cab.atacar(sol);
 		Assert.assertEquals(100, sol.getSalud(), 0);//se calmo. Puede atacar
 	}
 }
