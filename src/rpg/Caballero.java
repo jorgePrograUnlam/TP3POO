@@ -1,7 +1,7 @@
 package rpg;
 
 /**
- * La Clase Caballero.
+ * La Clase Caballero. Hereda de la clase unidad
  */
 public class Caballero extends Unidad {
 	
