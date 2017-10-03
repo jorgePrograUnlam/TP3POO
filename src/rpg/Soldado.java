@@ -1,7 +1,7 @@
 package rpg;
 
 /**
- * La Clase Soldado.
+ * La Clase Soldado. Hereda de la clase abstracta Unidad.
  */
 public class Soldado extends Unidad {
 
@@ -27,7 +27,7 @@ public class Soldado extends Unidad {
 	}
 
 	/**
-	 * constructor de saoldado con parametros
+	 * constructor de soldado con parametros
 	 * crea un soldado con una posicion.
 	 *
 	 * @param posicion posicion donde se encuentra el soldado
@@ -54,7 +54,7 @@ public class Soldado extends Unidad {
 	/**
 	 * Multiplica energia
 	 *
-	 * @param valor multiplicador
+	 * @param valor Es el valor a multiplicar
 	 */
 	public void multiplicarEnergia(int valor) {
 		energia *= valor;
@@ -65,23 +65,31 @@ public class Soldado extends Unidad {
 	/**
 	 * Restar mitad de energia.
 	 *
-	 * @param valor the valor
+	 * @param valor Es el valor que se le restara a la energia
 	 */
 	public void dividirEnergia(int valor) {
 		energia /= valor;
 	}
 
-
-
+	/**
+	 * depende del atributo energia del objeto
+	 *
+	 * @param u Es la unidad a la cual quiere atacar
+	 * @return boolean devuelve true si puede atacar, false si no.
+	 */
+	@Override
+	public boolean puedeAtacar(Unidad u) {
+		return energia >= 10;
+	}
+	
+	
 	/* (non-Javadoc)
 	 * @see rpg.Unidad#ataca(rpg.Unidad)
 	 */
 	@Override
 	public void ataca(Unidad u) {
-		if (energia >= 10 ) {
 			energia -= 10;
 			u.recibirDaño(getAtaque());
-		}
 	}
 
 	/**
@@ -92,5 +100,7 @@ public class Soldado extends Unidad {
 	public int getEnergia() {
 		return energia;
 	}
+
+
 
 }

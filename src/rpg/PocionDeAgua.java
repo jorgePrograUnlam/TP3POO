@@ -1,7 +1,10 @@
 package rpg;
 
 /**
- * La Clase PocionDeAgua.
+ * La Clase PocionDeAgua. Hereda de la clase abstracta Item
+ * solo actua sobre la unidad del tipo soldado y caballero
+ * Si es un Soldado, le restaura su energia
+ * Si es una Caballero, calma a su caballo
  */
 public class PocionDeAgua extends Item {
 

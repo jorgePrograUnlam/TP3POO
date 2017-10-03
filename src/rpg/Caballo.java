@@ -22,7 +22,7 @@ public class Caballo {
 	 * @return si el caballo esta rebelde
 	 */
 	public Boolean estaRebelde() {
-		return (ataques > CANTIDAD_DE_ATAQUES);
+		return (ataques >= CANTIDAD_DE_ATAQUES);
 	}
 
 	/**

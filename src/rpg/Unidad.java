@@ -2,7 +2,7 @@ package rpg;
 import java.util.LinkedList;
 
 /**
- * La clase Unidad.
+ * La clase Abstracta Unidad. Tiene como subclases: Soldado, Guerrero, Caballero y Lancero
  */
 public abstract class Unidad {
 
@@ -49,13 +49,32 @@ public abstract class Unidad {
 	public int getDistancia(Unidad o) {
 		return Math.abs(posicion - o.posicion);
 	}
-
+	
 	/**
-	 * Ataca a otra unidad.
+	 * Template Method
+	 * permite que cada tipo de unidad implemente 
+	 * los metodos puedeAtacar y ataca
+	 * de manera distinta
+	 * @param u unidad que va a ser atacada
+	 */
+	public void atacar(Unidad u){
+		if(puedeAtacar(u))
+			ataca(u);
+	}
+
+	/**metodo que se utiliza dentro del metodo atacar
+	 * Ataca a otra unidad. Su implementacion depende del tipo de unidad
 	 *
 	 * @param u la unidad que recibe el ataque
 	 */
 	public abstract void ataca(Unidad u);
+	
+	/**
+	 * metodo que se utiliza dentro del metodo atacar
+	 * @param u unidad a la cual quiere atacar
+	 * @return boolean que indica si puede atacar o no
+	 */
+	public abstract boolean puedeAtacar(Unidad u);
 
 	/**
 	 * Aumentar la defensa porcentual contra ataques.
@@ -87,7 +106,7 @@ public abstract class Unidad {
 	/**
 	 * Disminuye el ataque porcentual del daño
 	 *
-	 * @param n cantidad a aumentar
+	 * @param n cantidad a disminuir
 	 */
 	public void disminuirAtaquePorcentual(double n) {
 			ataque /= n;

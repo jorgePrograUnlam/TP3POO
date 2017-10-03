@@ -12,7 +12,7 @@ public class AppMain {
 
 		System.out.println(s2.getSalud());			//200
 
-		s1.ataca(s2);
+		s1.atacar(s2);
 		System.out.println(s2.getSalud());			//190
 
 		// Probando 1 Item Escudo
@@ -20,7 +20,7 @@ public class AppMain {
 
 		s2.agarrarItem(escudo);
 
-		s1.ataca(s2); //10*0.4=4  quito 4 daño
+		s1.atacar(s2); //10*0.4=4  quito 4 daño
 		System.out.println(s2.getSalud());			//186
 
 		// Probando 2 Item Escudo
@@ -28,7 +28,7 @@ public class AppMain {
 
 		s2.agarrarItem(escudo2);//
 
-		s1.ataca(s2);// (10*0.4=4)*0.4=1.6 quito 1.6 daño 
+		s1.atacar(s2);// (10*0.4=4)*0.4=1.6 quito 1.6 daño 
 		System.out.println(s2.getSalud());			//184.4
 		
 		System.out.println(s1.getEnergia());//ataco 3 veces
@@ -42,11 +42,11 @@ public class AppMain {
 		// Probando tirar Items
 		s2.tirarItem(escudo);
 
-		s1.ataca(s2); //quito 4						//180.4
+		s1.atacar(s2); //quito 4						//180.4
 		System.out.println(s2.getSalud());//tiro un escudo. disminuye defensa
 
 		s2.tirarItem(escudo2);						
-		s1.ataca(s2); //quito 10
+		s1.atacar(s2); //quito 10
 		System.out.println(s2.getSalud());			//170.4
 	}
 

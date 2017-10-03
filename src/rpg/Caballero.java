@@ -1,7 +1,7 @@
 package rpg;
 
 /**
- * La Clase Caballero.
+ * La Clase Caballero. Hereda de la clase unidad
  */
 public class Caballero extends Unidad {
 	
@@ -40,21 +40,24 @@ public class Caballero extends Unidad {
 		caballo.calmarse();
 	}
 
+	/**
+	 * depende de la distancia entre atacante y el atacado
+	 * y del estado del caballo
+	 * @param u es la unidad a la cual se quiere atacar
+	 * @return boolean devuelve true si puede atacar, false si no.
+	 */
+	@Override
+	public boolean puedeAtacar(Unidad u) {
+		int distancia = getDistancia(u); 	
+		return distancia >= DISTANCIA_MINIMA &&distancia <= DISTANCIA_MAXIMA &&!caballo.estaRebelde();
+	}
 	/* (non-Javadoc)
 	 * @see rpg.Unidad#ataca(rpg.Unidad)
 	 */
 	@Override
 	public void ataca(Unidad u) {
-		int distancia = getDistancia(u); 
-		
-		if ( distancia >= DISTANCIA_MINIMA &&
-			 distancia <= DISTANCIA_MAXIMA &&
-			 !caballo.estaRebelde() 		  ) {
-	
 			u.recibirDaño(getAtaque());
 			caballo.recibirAtaque();
-		}
-
 	}
 
 

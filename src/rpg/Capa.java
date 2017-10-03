@@ -1,7 +1,10 @@
 package rpg;
 
 /**
- * La Clase Capa.
+ * La Clase Capa. Hereda de la clase abstracta Item
+ * Solo se aplica a las unidades que son del tipo Soldado.
+ * Aumenta el ataque  del Soldado que lo posea en un 10%
+ * Duplica la energia.
  */
 public class Capa extends Item {
 
