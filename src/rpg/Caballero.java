@@ -40,6 +40,12 @@ public class Caballero extends Unidad {
 		caballo.calmarse();
 	}
 
+	/**
+	 * depende de la distancia entre atacante y el atacado
+	 * y del estado del caballo
+	 * @param u es la unidad a la cual se quiere atacar
+	 * @return boolean devuelve true si puede atacar, false si no.
+	 */
 	@Override
 	public boolean puedeAtacar(Unidad u) {
 		int distancia = getDistancia(u); 	

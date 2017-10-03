@@ -31,7 +31,14 @@ public class Lancero extends Unidad {
 		super(SALUD_INICIAL, DAÑO_INICIAL, posicion);
 
 	}
-
+	
+	
+	/**
+	 * depende de la distancia entre atacante y el atacado
+	 *
+	 * @param u es la unidad a la cual se quiere atacar
+	 * @return boolean devuelve true si puede atacar, false si no.
+	 */
 	@Override
 	public boolean puedeAtacar(Unidad u) {
 		int distancia = getDistancia(u);

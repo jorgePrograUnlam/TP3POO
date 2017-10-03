@@ -51,6 +51,12 @@ public class Arquero extends Unidad {
 
 	}
 
+	/**
+	 * depende de la distancia entre atacante y el atacado
+	 * y de la cantidad de flechas que posea el atacante	 *
+	 * @param u es la unidad a la cual se quiere atacar
+	 * @return boolean devuelve true si puede atacar, false si no.
+	 */
 	@Override
 	public boolean puedeAtacar(Unidad u) {
 		int distancia = getDistancia(u);

@@ -71,7 +71,12 @@ public class Soldado extends Unidad {
 		energia /= valor;
 	}
 
-
+	/**
+	 * depende del atributo energia del objeto
+	 *
+	 * @param u Es la unidad a la cual quiere atacar
+	 * @return boolean devuelve true si puede atacar, false si no.
+	 */
 	@Override
 	public boolean puedeAtacar(Unidad u) {
 		return energia >= 10;
