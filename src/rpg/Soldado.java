@@ -58,8 +58,6 @@ public class Soldado extends Unidad {
 	 */
 	public void multiplicarEnergia(int valor) {
 		energia *= valor;
-		//	if(energia>100)
-		//		energia=100;
 	}
 
 	/**
