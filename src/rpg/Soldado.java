@@ -5,16 +5,10 @@ package rpg;
  */
 public class Soldado extends Unidad {
 
-	/** energia para atacar. */
-	private int energia;
-
-	/** Constante ENERGIA_INICIAL. */
 	private static final int ENERGIA_INICIAL = 100;
 	
-	/** Constante SALUD_INICIAL. */
 	private static final double SALUD_INICIAL = 200;
 	
-	/** Constante DAÑO_INICIAL. */
 	private static final double DAÑO_INICIAL = 10;
 
 	/**
@@ -44,18 +38,13 @@ public class Soldado extends Unidad {
 		energia = ENERGIA_INICIAL;
 	}
 
-	/**
-	 * Restaura el daño a su valor inicial
-	 */
-	public void restaurarDaño() {
-		this.daño = DAÑO_INICIAL;
-	}
 
 	/**
 	 * Multiplica energia
 	 *
 	 * @param valor Es el valor a multiplicar
 	 */
+	@Override
 	public void multiplicarEnergia(int valor) {
 		energia *= valor;
 	}
@@ -90,13 +79,11 @@ public class Soldado extends Unidad {
 			u.recibirDaño(getAtaque());
 	}
 
-	/**
-	 * obtener la energia.
-	 *
-	 * @return la energia del soldado
-	 */
-	public int getEnergia() {
-		return energia;
+
+	@Override
+	public void tomarPocionDeAgua() {
+		restaurarEnergia();
+		
 	}
 
 

@@ -6,11 +6,11 @@ import org.junit.Assert;
 
 import rpg.Arquero;
 import rpg.Caballero;
-import rpg.Escudo;
+import rpg.UnidadEscudo;
 import rpg.Lancero;
-import rpg.PocionDeAgua;
-import rpg.Puñal;
+import rpg.UnidadPuñal;
 import rpg.Soldado;
+import rpg.Unidad;
 
 public class CaballeroTest {
 
@@ -39,18 +39,18 @@ public class CaballeroTest {
 
 	@Test
 	public void queAumentaDefensaConEscudo() {
-		Caballero cab = new Caballero(3);
+		Unidad cab = new Caballero(3);
 		Soldado sol = new Soldado(4);
-		cab.agarrarItem(new Escudo());
+		cab = new UnidadEscudo(cab);
 		sol.atacar(cab);
 		Assert.assertEquals(196, cab.getSalud(), 0);
 	}
 
 	@Test
 	public void queAumentaAtaqueConPuñal() {
-		Caballero cab = new Caballero(3);
+		Unidad cab = new Caballero(3);
 		Soldado sol = new Soldado(4);
-		cab.agarrarItem(new Puñal());
+		cab = new UnidadPuñal(cab);
 		cab.atacar(sol);
 		Assert.assertEquals(147, sol.getSalud(), 0);
 	}
@@ -82,7 +82,7 @@ public class CaballeroTest {
 		cab.atacar(arq);
 		cab.atacar(sol);
 		Assert.assertEquals(150, sol.getSalud(), 0);//se puso rebelde. No puede atacar
-		cab.agarrarItem(new PocionDeAgua());
+		cab.tomarPocionDeAgua();
 		cab.atacar(sol);
 		Assert.assertEquals(100, sol.getSalud(), 0);//se calmo. Puede atacar
 	}

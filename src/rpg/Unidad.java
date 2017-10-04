@@ -1,14 +1,11 @@
 package rpg;
-import java.util.LinkedList;
 
 /**
  * La clase Abstracta Unidad. Tiene como subclases: Soldado, Guerrero, Caballero y Lancero
  */
 public abstract class Unidad {
 
-	protected LinkedList<Item> items;
-
-	private double salud;
+	protected double salud;
 
 	private double defensa;
 	
@@ -19,9 +16,24 @@ public abstract class Unidad {
 	private double bonusAtaque;
 
 	protected double daño;
+	
+	protected int energia; 
 
 	private int posicion;
 
+	
+	public Unidad (Unidad u) {
+		this.salud = u.salud;
+		this.defensa = u.defensa;
+		this.bonusDefensa = u.bonusDefensa;
+		this.ataque = u.ataque;
+		this.bonusAtaque = u.bonusAtaque;
+		this.daño = u.daño;
+		this.posicion = u.posicion;
+		this.energia = u.energia;
+		
+	}
+	
 	/**
 	 * Crea una unidad con parametros.
 	 *
@@ -30,7 +42,6 @@ public abstract class Unidad {
 	 * @param posicion la posicion
 	 */
 	public Unidad(double salud, double daño, int posicion) {
-		this.items = new LinkedList<Item>();
 		this.salud = salud;
 		this.defensa = 1;
 		this.bonusDefensa = 0;
@@ -65,16 +76,16 @@ public abstract class Unidad {
 	/**metodo que se utiliza dentro del metodo atacar
 	 * Ataca a otra unidad. Su implementacion depende del tipo de unidad
 	 *
-	 * @param u la unidad que recibe el ataque
+	 * @param otraUnidad la unidad que recibe el ataque
 	 */
-	public abstract void ataca(Unidad u);
+	public abstract void ataca(Unidad otraUnidad);
 	
 	/**
 	 * metodo que se utiliza dentro del metodo atacar
-	 * @param u unidad a la cual quiere atacar
+	 * @param otraUnidad unidad a la cual quiere atacar
 	 * @return boolean que indica si puede atacar o no
 	 */
-	public abstract boolean puedeAtacar(Unidad u);
+	public abstract boolean puedeAtacar(Unidad otraUnidad);
 
 	/**
 	 * Aumentar la defensa porcentual contra ataques.
@@ -168,46 +179,6 @@ public abstract class Unidad {
 	}
 
 	
-	
-	
-	
-	
-	/**
-	 * Agarrar un item.
-	 *
-	 * @param i el item que se usa
-	 */
-	public void agarrarItem(Item i) {
-		i.aplicarEfecto(this);
-	}
-
-	/**
-	 * Agregar item.
-	 *
-	 * @param i el item a agregar a la unidad
-	 */
-	public void agregarItem(Item i) {
-		items.add(i);
-	}
-
-	/**
-	 * Tirar item.
-	 *
-	 * @param i el item que se tira
-	 */
-	public void tirarItem(Item i) {
-		i.quitarEfecto(this);
-	}
-
-	/**
-	 * Quitar item.
-	 *
-	 * @param i el item a quitar de la unidad
-	 */
-	public void quitarItem(Item i) {
-		items.remove(i);
-	}
-
 	/**
 	 * Obtener la salud.
 	 *
@@ -215,6 +186,16 @@ public abstract class Unidad {
 	 */
 	public double getSalud() {
 		return salud;
+	}
+	
+	
+	/**
+	 * Multiplica energia
+	 *
+	 * @param valor Es el valor a multiplicar
+	 */
+	public void multiplicarEnergia(int valor) {
+		energia *= valor;
 	}
 
 	/**
@@ -225,6 +206,17 @@ public abstract class Unidad {
 	public int getPosicion() {
 		return posicion;
 	}
+	
+	/**
+	 * obtener la energia.
+	 *
+	 * @return la energia de la unidad
+	 */
+	public int getEnergia() {
+		return energia;
+	}
+	
+	public abstract void tomarPocionDeAgua();
 
 
 }

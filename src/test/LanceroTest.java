@@ -4,10 +4,11 @@ import org.junit.Test;
 
 import org.junit.Assert;
 
-import rpg.Escudo;
+import rpg.UnidadEscudo;
 import rpg.Lancero;
-import rpg.Puñal;
+import rpg.UnidadPuñal;
 import rpg.Soldado;
+import rpg.Unidad;
 
 public class LanceroTest {
 	
@@ -37,37 +38,37 @@ public class LanceroTest {
 
 	@Test
 	public void queAumentaDefensaConEscudo(){
-		Lancero lan=new Lancero();
+		Unidad lan=new Lancero();
 		Soldado sol=new Soldado(50);
-		lan.agarrarItem(new Escudo());
+		lan = new UnidadEscudo(lan);
 		sol.atacar(lan);
 		Assert.assertEquals(146,lan.getSalud(),0);		
 	}
 	
 	@Test
 	public void queAumentaAtaqueConPuñal(){
-		Lancero lan=new Lancero();
+		Unidad lan=new Lancero();
 		Soldado sol=new Soldado(2);
-		lan.agarrarItem(new Puñal());
+		lan = new UnidadPuñal(lan);
 		lan.atacar(sol);
 		Assert.assertEquals(172, sol.getSalud(),0);
 	}
 	
 	@Test
 	public void queDisminuyeDefensaConPuñal(){
-		Lancero lan=new Lancero();
+		Unidad lan=new Lancero();
 		Soldado sol=new Soldado(5);
-		lan.agarrarItem(new Puñal());
+		lan = new UnidadPuñal(lan);
 		sol.atacar(lan);
 		Assert.assertEquals(137, lan.getSalud(),0);
 	}
 	
 	@Test
 	public void queUtilizaPuñalYEscudo(){
-		Lancero lan=new Lancero();
+		Unidad lan=new Lancero();
 		Soldado sol=new Soldado(2);
-		lan.agarrarItem(new Escudo());
-		lan.agarrarItem(new Puñal());
+		lan = new UnidadEscudo(new UnidadPuñal(lan));
+		//lan.agarrarItem(new UnidadPuñal());
 		sol.atacar(lan);
 		Assert.assertEquals(143,lan.getSalud(),0);
 	}

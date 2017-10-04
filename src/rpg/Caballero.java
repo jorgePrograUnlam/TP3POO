@@ -60,5 +60,10 @@ public class Caballero extends Unidad {
 			caballo.recibirAtaque();
 	}
 
+	@Override
+	public void tomarPocionDeAgua() {
+		calmarCaballo();
+	}
+
 
 }

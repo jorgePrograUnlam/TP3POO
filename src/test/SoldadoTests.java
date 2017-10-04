@@ -3,10 +3,10 @@ package test;
 import org.junit.Assert;
 import org.junit.Test;
 
-import rpg.Capa;
-import rpg.Escudo;
-import rpg.PocionDeAgua;
+import rpg.UnidadCapa;
+import rpg.UnidadEscudo;
 import rpg.Soldado;
+import rpg.Unidad;
 
 public class SoldadoTests {
 	@Test
@@ -47,9 +47,9 @@ public class SoldadoTests {
 
 	@Test
 	public void queAumentaDefensaCuandoAgarraEscudo(){
-		Soldado uno=new Soldado(0);
-		Soldado otro=new Soldado(0);
-		otro.agarrarItem(new Escudo());
+		Unidad uno=new Soldado(0);
+		Unidad otro=new Soldado(0);
+		otro = new UnidadEscudo(otro);
 		uno.atacar(otro);
 		Assert.assertEquals(196, otro.getSalud(),0);//de 10 recibe el 40%.. recibe 4		
 	}
@@ -61,19 +61,19 @@ public class SoldadoTests {
 		for(int i=0;i<10;i++)
 			uno.atacar(otro);
 		Assert.assertEquals(0,uno.getEnergia(),0);
-		uno.agarrarItem(new PocionDeAgua());
+		uno.tomarPocionDeAgua();
 		Assert.assertEquals(100,uno.getEnergia(),0);
 	}
 	
 	@Test
 	public void queDuplicaEnergiaConCapa(){
-		Soldado uno=new Soldado(0);
-		Soldado otro=new Soldado(0);
+		Unidad uno=new Soldado(0);
+		Unidad otro=new Soldado(0);
 		Assert.assertEquals(100,uno.getEnergia(),0);
 		for(int i=0;i<5;i++)
 			uno.atacar(otro);
 		Assert.assertEquals(50, uno.getEnergia(),0);
-		uno.agarrarItem(new Capa());
+		uno = new UnidadCapa(uno);
 		Assert.assertEquals(100,uno.getEnergia(),0 );
 		Assert.assertEquals(9,uno.getAtaque(),0);		
 
@@ -81,24 +81,13 @@ public class SoldadoTests {
 	
 	@Test
 	public void queReduceAtaqueConCapa(){
-		Soldado uno=new Soldado(0);
+		Unidad uno=new Soldado(0);
 		Soldado otro=new Soldado(0);
-		uno.agarrarItem(new Capa());
+		uno = new UnidadCapa(uno);
 		uno.atacar(otro);
 		Assert.assertEquals(9, uno.getAtaque(),0);
 		Assert.assertEquals(191,otro.getSalud(),0);
 	}
 	
-	@Test
-	public void quRetiraEfectosAlTirarCapa(){
-		Soldado uno=new Soldado();
-		Capa capa=new Capa();
-		uno.agarrarItem(capa);
-		Assert.assertEquals(9, uno.getAtaque(),0);
-		Assert.assertEquals(200, uno.getEnergia(),0);
-		uno.tirarItem(capa);
-		Assert.assertEquals(10, uno.getAtaque(),0);
-		Assert.assertEquals(100, uno.getEnergia(),0);
-	}
 	
 }

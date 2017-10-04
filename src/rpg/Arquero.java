@@ -45,10 +45,8 @@ public class Arquero extends Unidad {
 	 *            un paquete de flechas
 	 */
 	public void recargarFlechas(PaqueteFlecha pf) {
-		if (pf.getCantidadFlechas() == RECARGA_FLECHAS) {
-			flechas += RECARGA_FLECHAS;
-		}
-
+		if (pf.getFlehas() == RECARGA_FLECHAS)
+			flechas+=6;
 	}
 
 	/**
@@ -81,6 +79,11 @@ public class Arquero extends Unidad {
 	 */
 	public int getFlechas() {
 		return flechas;
+	}
+
+	@Override
+	public void tomarPocionDeAgua() {
+		
 	}
 
 }

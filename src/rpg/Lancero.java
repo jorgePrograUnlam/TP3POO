@@ -55,4 +55,9 @@ public class Lancero extends Unidad {
 		u.recibirDaño(getAtaque());
 	}
 
+	@Override
+	public void tomarPocionDeAgua() {
+		
+	}
+
 }

@@ -4,10 +4,11 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import rpg.Arquero;
-import rpg.Escudo;
 import rpg.PaqueteFlecha;
-import rpg.Puñal;
+import rpg.UnidadEscudo;
+import rpg.UnidadPuñal;
 import rpg.Soldado;
+import rpg.Unidad;
 
 public class ArqueroTest {
 
@@ -54,7 +55,7 @@ public class ArqueroTest {
 		}
 		Assert.assertEquals(100, sold.getSalud(), 0);
 		Assert.assertEquals(0, arq.getFlechas());
-		arq.agarrarItem(new PaqueteFlecha());
+		arq.recargarFlechas(new PaqueteFlecha(6));
 		Assert.assertEquals(6, arq.getFlechas());
 	}
 	
@@ -72,18 +73,18 @@ public class ArqueroTest {
 	
 	@Test
 	public void queAumentaDefensaConEscudo(){
-		Arquero arq = new Arquero(0);
+		Unidad arq = new Arquero(0);
 		Soldado sold = new Soldado(3);
-		arq.agarrarItem(new Escudo());
+		arq = new UnidadEscudo(arq);
 		sold.atacar(arq);
 		Assert.assertEquals(46, arq.getSalud(),0);
 	}
 	
 	@Test
 	public void queAumentaAtaqueConPuñal(){
-		Arquero arq = new Arquero(0);
+		Unidad arq = new Arquero(0);
 		Soldado sold = new Soldado(3);
-		arq.agarrarItem(new Puñal());
+		arq= new UnidadPuñal(arq);
 		arq.atacar(sold);
 		Assert.assertEquals(8, arq.getAtaque(),0);
 		Assert.assertEquals(192,sold.getSalud(),0);
@@ -91,19 +92,18 @@ public class ArqueroTest {
 
 	@Test
 	public void queDisminuyeDefensaConPuñal(){
-		Arquero arq = new Arquero(0);
+		Unidad arq = new Arquero(0);
 		Soldado sold = new Soldado(3);
-		arq.agarrarItem(new Puñal());
+		arq = new UnidadPuñal(arq);
 		sold.atacar(arq);
 		Assert.assertEquals(37, arq.getSalud(),0);	
 	}
 	
 	@Test
 	public void queUtilizaPuñalYEscudo(){
-		Arquero arq = new Arquero(0);
+		Unidad arq = new Arquero(0);
 		Soldado sold = new Soldado(3);
-		arq.agarrarItem(new Escudo());
-		arq.agarrarItem(new Puñal());
+		arq = new UnidadPuñal (new UnidadEscudo(arq));
 		sold.atacar(arq);
 		Assert.assertEquals(43, arq.getSalud(),0.01);
 	}
