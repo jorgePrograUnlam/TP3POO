@@ -22,6 +22,11 @@ public abstract class Unidad {
 	private int posicion;
 
 	
+	/**
+	 * Instantiates a new unidad.
+	 *
+	 * @param u la unidad a decorar
+	 */
 	public Unidad (Unidad u) {
 		this.salud = u.salud;
 		this.defensa = u.defensa;
@@ -65,7 +70,8 @@ public abstract class Unidad {
 	 * Template Method
 	 * permite que cada tipo de unidad implemente 
 	 * los metodos puedeAtacar y ataca
-	 * de manera distinta
+	 * de manera distinta.
+	 *
 	 * @param u unidad que va a ser atacada
 	 */
 	public void atacar(Unidad u){
@@ -81,7 +87,8 @@ public abstract class Unidad {
 	public abstract void ataca(Unidad otraUnidad);
 	
 	/**
-	 * metodo que se utiliza dentro del metodo atacar
+	 * metodo que se utiliza dentro del metodo atacar.
+	 *
 	 * @param otraUnidad unidad a la cual quiere atacar
 	 * @return boolean que indica si puede atacar o no
 	 */
@@ -106,7 +113,7 @@ public abstract class Unidad {
 	}
 	
 	/**
-	 * Aumentar el ataque porcentual del daño
+	 * Aumentar el ataque porcentual del daño.
 	 *
 	 * @param n cantidad a aumentar
 	 */
@@ -115,7 +122,7 @@ public abstract class Unidad {
 	}
 	
 	/**
-	 * Disminuye el ataque porcentual del daño
+	 * Disminuye el ataque porcentual del daño.
 	 *
 	 * @param n cantidad a disminuir
 	 */
@@ -170,7 +177,7 @@ public abstract class Unidad {
 	}
 	
 	/**
-	 * Obtener el ataque en base al daño
+	 * Obtener el ataque en base al daño.
 	 *
 	 * @return el ataque que tiene la unidad
 	 */
@@ -190,7 +197,7 @@ public abstract class Unidad {
 	
 	
 	/**
-	 * Multiplica energia
+	 * Multiplica energia.
 	 *
 	 * @param valor Es el valor a multiplicar
 	 */
@@ -199,8 +206,8 @@ public abstract class Unidad {
 	}
 
 	/**
-	 * Obtener la posicion de la unidad
-	 * 
+	 * Obtener la posicion de la unidad.
+	 *
 	 * @return devuelve la posicion donde se encuentra
 	 */
 	public int getPosicion() {
@@ -216,6 +223,9 @@ public abstract class Unidad {
 		return energia;
 	}
 	
+	/**
+	 * Tomar pocion de agua.
+	 */
 	public abstract void tomarPocionDeAgua();
 
 

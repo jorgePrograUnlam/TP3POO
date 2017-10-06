@@ -11,26 +11,40 @@ public class UnidadCapa extends UnidadDecorada {
 	private static final int MULTIPLICADOR_ENERGIA = 2;
 	private static final double ATAQUE_PORCENTUAL = 0.9;
 
+	/**
+	 * Crea una nueva unidad con capa.
+	 *
+	 * @param u la unidad a decorar
+	 */
 	public UnidadCapa(Unidad u) {
 		super(u);
 		aumentarAtaquePorcentual(ATAQUE_PORCENTUAL);
-		unidadDecorada.aumentarAtaquePorcentual(ATAQUE_PORCENTUAL);
 		multiplicarEnergia(MULTIPLICADOR_ENERGIA);
+		unidadDecorada.aumentarAtaquePorcentual(ATAQUE_PORCENTUAL);
 		unidadDecorada.multiplicarEnergia(MULTIPLICADOR_ENERGIA);
 	}
 
 
+	/* (non-Javadoc)
+	 * @see rpg.UnidadDecorada#ataca(rpg.Unidad)
+	 */
 	@Override
 	public void ataca(Unidad otraUnidad) {
 		super.ataca(otraUnidad);
 		
 	}
 
+	/* (non-Javadoc)
+	 * @see rpg.UnidadDecorada#puedeAtacar(rpg.Unidad)
+	 */
 	@Override
 	public boolean puedeAtacar(Unidad otraUnidad) {
 		return super.puedeAtacar(otraUnidad);
 	}
 	
+	/* (non-Javadoc)
+	 * @see rpg.UnidadDecorada#tomarPocionDeAgua()
+	 */
 	@Override
 	public void tomarPocionDeAgua() {
 		super.tomarPocionDeAgua();
