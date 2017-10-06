@@ -11,6 +11,7 @@ import rpg.Lancero;
 import rpg.UnidadPuñal;
 import rpg.Soldado;
 import rpg.Unidad;
+import rpg.UnidadCapa;
 
 public class CaballeroTest {
 
@@ -85,5 +86,22 @@ public class CaballeroTest {
 		cab.tomarPocionDeAgua();
 		cab.atacar(sol);
 		Assert.assertEquals(100, sol.getSalud(), 0);//se calmo. Puede atacar
+	}
+	
+	@Test
+	public void queUtilizaEscudoYCapa(){
+		Unidad cab = new Caballero(0);
+		Soldado sold = new Soldado(3);
+		cab = new UnidadEscudo (new UnidadCapa(cab));
+		
+		Assert.assertEquals(0.4 , cab.getDefensaPorcentual(), 0);
+		
+		Assert.assertEquals(0.9 , cab.getAtaquePorcentual(), 0);
+		
+		Assert.assertEquals(0 , cab.getEnergia());
+		
+		
+		sold.atacar(cab);
+		Assert.assertEquals(196 , cab.getSalud(),0);
 	}
 }

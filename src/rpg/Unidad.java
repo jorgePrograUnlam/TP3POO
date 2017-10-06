@@ -7,7 +7,7 @@ public abstract class Unidad {
 
 	protected double salud;
 
-	private double defensa;
+	protected double defensa;
 	
 	private double bonusDefensa;
 
@@ -227,6 +227,24 @@ public abstract class Unidad {
 	 * Tomar pocion de agua.
 	 */
 	public abstract void tomarPocionDeAgua();
+
+	/**
+	 * Obtiene la defensa porcentual
+	 *
+	 * @return la defensa a ataques
+	 */
+	public double getDefensaPorcentual() {
+		return defensa;
+	}
+	
+	/**
+	 * Obtiene el ataque porcentual
+	 *
+	 * @return el ataque multiplicativo del daño
+	 */
+	public double getAtaquePorcentual() {
+		return ataque;
+	}
 
 
 }
