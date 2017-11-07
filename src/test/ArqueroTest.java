@@ -105,7 +105,7 @@ public class ArqueroTest {
 		Soldado sold = new Soldado(3);
 		arq = new UnidadPuñal (new UnidadEscudo(arq));
 		sold.atacar(arq);
-		Assert.assertEquals(43, arq.getSalud(),0.01);
+		Assert.assertEquals(44.8, arq.getSalud(),0.01);
 	}
 	
 	

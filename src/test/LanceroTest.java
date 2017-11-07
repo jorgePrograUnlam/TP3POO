@@ -64,7 +64,7 @@ public class LanceroTest {
 	}
 	
 	@Test
-	public void queUtilizaPuñalYEscudo(){
+	public void queUtilizaEscudoYPuñal(){
 		Unidad lan=new Lancero();
 		Soldado sol=new Soldado(2);
 		lan = new UnidadEscudo(new UnidadPuñal(lan));

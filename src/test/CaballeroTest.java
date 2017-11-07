@@ -89,19 +89,17 @@ public class CaballeroTest {
 		Assert.assertEquals(100, sol.getSalud(), 0);// se calmo. Puede atacar
 	}
 
+	
 	@Test
-	public void queUtilizaEscudoYCapa() {
+	public void queUtilizaEscudoYPuñal() {
 		Unidad cab = new Caballero(0);
 		Soldado sold = new Soldado(3);
-		cab = new UnidadEscudo(new UnidadCapa(cab));
+		cab = new UnidadEscudo(new UnidadPuñal(cab));
 
 		Assert.assertEquals(0.4, cab.getDefensaPorcentual(), 0);
 
-		Assert.assertEquals(0.9, cab.getAtaquePorcentual(), 0);
-
-		Assert.assertEquals(0, cab.getEnergia());
-
 		sold.atacar(cab);
-		Assert.assertEquals(196, cab.getSalud(), 0);
+		Assert.assertEquals(193, cab.getSalud(), 0);
 	}
+	
 }
