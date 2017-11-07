@@ -1,17 +1,16 @@
 package test;
 
-import org.junit.Test;
-
 import org.junit.Assert;
+import org.junit.Test;
 
 import rpg.Arquero;
 import rpg.Caballero;
-import rpg.UnidadEscudo;
 import rpg.Lancero;
-import rpg.UnidadPuñal;
 import rpg.Soldado;
 import rpg.Unidad;
 import rpg.UnidadCapa;
+import rpg.UnidadEscudo;
+import rpg.UnidadPuñal;
 
 public class CaballeroTest {
 
@@ -69,11 +68,12 @@ public class CaballeroTest {
 		cab.atacar(arq);
 		Assert.assertEquals(0, arq.getSalud(), 0);
 		cab.atacar(sol);
-		Assert.assertEquals(150, sol.getSalud(), 0);//se puso rebelde. No puede atacar
+		Assert.assertEquals(150, sol.getSalud(), 0);// se puso rebelde. No puede
+													// atacar
 	}
 
 	@Test
-	public void queCaballoSeCalmaConPocionDeAgua(){
+	public void queCaballoSeCalmaConPocionDeAgua() {
 		Caballero cab = new Caballero(1);
 		Soldado sol = new Soldado(2);
 		Lancero lan = new Lancero(2);
@@ -82,26 +82,26 @@ public class CaballeroTest {
 		cab.atacar(lan);
 		cab.atacar(arq);
 		cab.atacar(sol);
-		Assert.assertEquals(150, sol.getSalud(), 0);//se puso rebelde. No puede atacar
+		Assert.assertEquals(150, sol.getSalud(), 0);// se puso rebelde. No puede
+													// atacar
 		cab.tomarPocionDeAgua();
 		cab.atacar(sol);
-		Assert.assertEquals(100, sol.getSalud(), 0);//se calmo. Puede atacar
+		Assert.assertEquals(100, sol.getSalud(), 0);// se calmo. Puede atacar
 	}
-	
+
 	@Test
-	public void queUtilizaEscudoYCapa(){
+	public void queUtilizaEscudoYCapa() {
 		Unidad cab = new Caballero(0);
 		Soldado sold = new Soldado(3);
-		cab = new UnidadEscudo (new UnidadCapa(cab));
-		
-		Assert.assertEquals(0.4 , cab.getDefensaPorcentual(), 0);
-		
-		Assert.assertEquals(0.9 , cab.getAtaquePorcentual(), 0);
-		
-		Assert.assertEquals(0 , cab.getEnergia());
-		
-		
+		cab = new UnidadEscudo(new UnidadCapa(cab));
+
+		Assert.assertEquals(0.4, cab.getDefensaPorcentual(), 0);
+
+		Assert.assertEquals(0.9, cab.getAtaquePorcentual(), 0);
+
+		Assert.assertEquals(0, cab.getEnergia());
+
 		sold.atacar(cab);
-		Assert.assertEquals(196 , cab.getSalud(),0);
+		Assert.assertEquals(196, cab.getSalud(), 0);
 	}
 }
